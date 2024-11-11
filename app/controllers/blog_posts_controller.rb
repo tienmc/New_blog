@@ -55,4 +55,8 @@ class BlogPostsController < ApplicationController
         redirect_to root_path
     end
 
+
+    def pagy_get_vars(collection, vars)
+        { page: vars[:page], items: vars[:items] }
+    end
 end
