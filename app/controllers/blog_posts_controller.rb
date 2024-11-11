@@ -53,4 +53,8 @@ class BlogPostsController < ApplicationController
         rescue ActiveRecord::RecordNotFound
         redirect_to root_path
     end
+
+    def authenticate_user!
+        redirect_to new_user_session_path unless user_signed_in?
+    end
 end
