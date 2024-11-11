@@ -59,4 +59,8 @@ class BlogPostsController < ApplicationController
     def pagy_get_vars(collection, vars)
         { page: vars[:page], items: vars[:items] }
     end
+
+    def pagy_get_items(collection, pagy)
+        collection.limit(pagy.items).offset(pagy.offset)
+    end
 end
