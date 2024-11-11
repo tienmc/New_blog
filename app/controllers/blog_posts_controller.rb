@@ -56,4 +56,7 @@ class BlogPostsController < ApplicationController
     def check_user
         redirect_to root_path unless @blog_post.user == current_user
     end
+    def check_published
+        redirect_to root_path unless @blog_post.published_at <= Time.now
+    end
 end
