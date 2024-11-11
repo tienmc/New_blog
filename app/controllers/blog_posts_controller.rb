@@ -59,5 +59,10 @@ class BlogPostsController < ApplicationController
         redirect_to root_path unless @blog_post.user == current_user
     def authenticate_user! 
         redirect_to new_user_session_path unless user_signed_in?
+    def check_user
+        redirect_to root_path unless @blog_post.user == current_user
+    end
+    def check_published
+        redirect_to root_path unless @blog_post.published_at <= Time.now
     end
 end
