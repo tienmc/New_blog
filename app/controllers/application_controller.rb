@@ -3,4 +3,6 @@ class ApplicationController < ActionController::Base
 
     def authenticate_user
     end
+    def user_signed_in?
+    end
 end
